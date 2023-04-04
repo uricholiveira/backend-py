@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# IDEs, Text Editors
+.idea
+.vscode
+.atom
+.fleet
