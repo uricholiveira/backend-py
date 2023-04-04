@@ -26,3 +26,11 @@ python-dotenv = "^1.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+python_files = "*.py"
+python_classes = "Test"
+testpaths = [
+    "tests"
+]
