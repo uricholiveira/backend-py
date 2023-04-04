@@ -15,22 +15,23 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.6", "3.7", "3.8", "3.9" ]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v4.0.0
-      with:
-        python-version: "3.11"
-    - name: Install Poetry
-      uses: Gr1N/setup-poetry@v8
-    - name: Caching virtual environment
-      uses: actions/cache@v3.0.4
-      with:
-        path: ~/.cache/pypoetry/virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
-    - name: Installing dependencies
-      run: |
-        poetry install
-    - name: Test with pytest
-      run: |
-        pytest
+      - uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "America/Sao_Paulo"
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install pytest pytest-md pytest-emoji
+      - uses: pavelzw/pytest-action@v2
+        with:
+          emoji: true
+          verbose: false
+          job-summary: true
