@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Urich Oliveira <oliveira.urich@gmail.com>"]
 readme = "README.md"
-packages = [{include = "backend_py"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -27,3 +26,11 @@ python-dotenv = "^1.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+python_files = "*.py"
+python_classes = "Test"
+testpaths = [
+    "tests"
+]

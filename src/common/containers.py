@@ -24,6 +24,6 @@ class Container(containers.DeclarativeContainer):
     health_check_repository = providers.Factory(
         HealthCheckRepository, session_factory=db.provided.session
     )
-    user_service = providers.Factory(
+    health_check_service = providers.Factory(
         HealthCheckService, health_check_repository=health_check_repository
     )
