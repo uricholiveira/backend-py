@@ -3,8 +3,6 @@ from fastapi import APIRouter, Depends
 
 from src.common.containers import Container
 from src.services.health_check import HealthCheckService
-from dependency_injector.wiring import inject
-from fastapi import APIRouter
 
 router = APIRouter(prefix="/health_check", tags=["Health Check"])
 
