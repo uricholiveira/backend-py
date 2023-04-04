@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [ "main", "develop" ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,6 +29,9 @@ jobs:
         run: pip install pytest pytest-md pytest-emoji
       - uses: pavelzw/pytest-action@v2
         with:
+          verbose: true
           emoji: true
-          verbose: false
           job-summary: true
+          custom-arguments: '-q'
+          click-to-expand: true
+          report-title: 'Test Report'
