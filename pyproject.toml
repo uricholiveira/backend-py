@@ -16,6 +16,7 @@ alembic = "^1.10.2"
 arrow = "^1.2.3"
 psycopg2 = "^2.9.6"
 psutil = "^5.9.4"
+contextvars = "^2.4"
 
 
 [tool.poetry.group.dev.dependencies]
